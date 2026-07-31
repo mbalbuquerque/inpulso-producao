@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard | Impluso
+{% endblock %}
+
+{% block page_title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="welcome">
+
+    <h2>
+        Olá, {{ usuario.get_username }}!
+    </h2>
+
+    <p>
+        Bem-vindo ao sistema de gestão da produção.
+    </p>
+
+</div>
+
+
+<div class="cards">
+
+    <div class="card">
+
+        <span class="card-icon">📋</span>
+
+        <div>
+            <span class="card-label">
+                Pedidos
+            </span>
+
+            <strong>0</strong>
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <span class="card-icon">🏭</span>
+
+        <div>
+            <span class="card-label">
+                Ordens de Produção
+            </span>
+
+            <strong>0</strong>
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <span class="card-icon">⚙️</span>
+
+        <div>
+            <span class="card-label">
+                Em Produção
+            </span>
+
+            <strong>0</strong>
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <span class="card-icon">🚚</span>
+
+        <div>
+            <span class="card-label">
+                Entregas
+            </span>
+
+            <strong>0</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="production-panel">
+
+    <div class="panel-header">
+
+        <div>
+            <h2>Produção em andamento</h2>
+
+            <p>
+                Acompanhe as ordens de produção.
+            </p>
+        </div>
+
+        <button>
+            Ver produção
+        </button>
+
+    </div>
+
+
+    <div class="empty-production">
+
+        <div class="empty-icon">
+            🏭
+        </div>
+
+        <h3>
+            Nenhuma produção em andamento
+        </h3>
+
+        <p>
+            As ordens de produção aparecerão aqui.
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

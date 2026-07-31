@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Impluso Produção{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <aside class="sidebar">
+
+            <div class="logo-area">
+                <img src="{% static 'img/logo.png' %}" alt="Impluso">
+            </div>
+
+            <nav>
+
+                <a href="{% url 'dashboard' %}">
+                    🏠 Dashboard
+                </a>
+
+                <a href="#">
+                    👥 Clientes
+                </a>
+
+                <a href="#">
+                    📋 Pedidos
+                </a>
+
+                <a href="#">
+                    🏭 Produção
+                </a>
+
+                <a href="#">
+                    📦 Estoque
+                </a>
+
+                <a href="#">
+                    📊 Relatórios
+                </a>
+
+                <a href="#">
+                    👤 Usuários
+                </a>
+
+                <a href="#">
+                    ⚙️ Configurações
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="{% url 'logout' %}">
+                    🚪 Sair
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <main class="main">
+
+            <header class="topbar">
+
+                <div>
+                    <h1>{% block page_title %}Dashboard{% endblock %}</h1>
+                </div>
+
+                <div class="user-area">
+
+                    <span class="user-name">
+                        {{ usuario.get_username }}
+                    </span>
+
+                    <div class="user-avatar">
+                        {{ usuario.username|first|upper }}
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <section class="content">
+
+                {% block content %}
+                {% endblock %}
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

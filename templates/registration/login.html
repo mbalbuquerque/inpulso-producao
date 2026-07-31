@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Impluso</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+
+<body>
+
+    <div class="login-page">
+
+        <div class="login-box">
+
+            <img src="{% static 'img/logo.png' %}" alt="Impluso" class="login-logo">
+
+            <h1>
+                Acesso ao sistema
+            </h1>
+
+            <p>
+                Gestão da produção
+            </p>
+
+
+            {% if form.errors %}
+
+            <div class="login-error">
+                Usuário ou senha inválidos.
+            </div>
+
+            {% endif %}
+
+
+            <form method="post">
+
+                {% csrf_token %}
+
+                <label>
+                    Usuário
+                </label>
+
+                <input type="text" name="username" required autofocus>
+
+
+                <label>
+                    Senha
+                </label>
+
+                <input type="password" name="password" required>
+
+
+                <button type="submit">
+                    Entrar
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
