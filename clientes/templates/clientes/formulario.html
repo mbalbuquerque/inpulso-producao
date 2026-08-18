@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>
+        {% if cliente %}
+            Editar Cliente
+        {% else %}
+            Novo Cliente
+        {% endif %}
+        | Inpulso
+    </title>
+
+</head>
+
+<body>
+
+<div style="max-width:700px;margin:40px auto;font-family:Arial;">
+
+    <h1>
+        {% if cliente %}
+            Editar Cliente
+        {% else %}
+            Novo Cliente
+        {% endif %}
+    </h1>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <p>
+            <label>Nome</label><br>
+
+            <input
+                type="text"
+                name="nome"
+                value="{{ cliente.nome|default:'' }}"
+                required
+                style="width:100%;padding:10px;"
+            >
+        </p>
+
+
+        <p>
+            <label>Telefone</label><br>
+
+            <input
+                type="text"
+                name="telefone"
+                value="{{ cliente.telefone|default:'' }}"
+                style="width:100%;padding:10px;"
+            >
+        </p>
+
+
+        <p>
+            <label>E-mail</label><br>
+
+            <input
+                type="email"
+                name="email"
+                value="{{ cliente.email|default:'' }}"
+                style="width:100%;padding:10px;"
+            >
+        </p>
+
+
+        <p>
+            <label>Endereço</label><br>
+
+            <input
+                type="text"
+                name="endereco"
+                value="{{ cliente.endereco|default:'' }}"
+                style="width:100%;padding:10px;"
+            >
+        </p>
+
+
+        <button
+            type="submit"
+            style="
+                padding:10px 20px;
+                background:#2563eb;
+                color:white;
+                border:none;
+                border-radius:5px;
+                cursor:pointer;
+            "
+        >
+            Salvar Cliente
+        </button>
+
+
+        <a
+            href="{% url 'clientes:lista' %}"
+            style="margin-left:10px;"
+        >
+            Cancelar
+        </a>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
